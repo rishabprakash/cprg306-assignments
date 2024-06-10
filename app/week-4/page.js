@@ -40,20 +40,19 @@ const NewItem = ()=> {
           className=" block w-full  p-4 border  border- rounded-black  md mt-1 shadow-sm  focus:border-blue-400"
         />
       </div>
-      <div  className="mb-2" >
-        <label htmlFor="quantity"  className= " block text-sm font-m edium  text-white" > Quantity </label>
-        <input
-           type= " number "
-           id=" quantity "
-          value={quantity}
-          min = "1"
-           max = "99"
-           onChange={(e) =>  setQuantity (Number(e.target.value) ) } 
-         
+      <div className="mb-3">
+          <label     htmlFor="quantity" className="block text-sm  font-medium   text-white">Quantity</label>
+        <input    
+           type="number"
+           id="quantity"
+            value= { quantity}
+           min="1"
+           max="99"
+            onChange={(e) =>  setQuantity (Number(e.target.value )) }
            required
-           className=" block   w-full  p-4  border  border- rounded-black  md  mt- 1 shadow-sm  focus:border-blue-400"
-         />
-       </div>
+             className="block w-full p-4 border border- rounded-black md mt-1 shadow-sm  focus:border-blue-400"
+        />
+      </div>
        <div className="mb-2">
          <label htmlFor="category" className="block text-sm font-medium text-white">Category</label>
         <select
