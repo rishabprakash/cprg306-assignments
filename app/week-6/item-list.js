@@ -3,9 +3,8 @@
 import React, { useState } from "react";
 
 import Item from "./item";
-import items from "./items.json";
 const
- ItemList  =  () => 
+ ItemList  =  ({items}) => 
   {  
   
   const
@@ -13,26 +12,6 @@ const
    =
       
       useState("name");
-
-        const
-         thesortedItem = [...items].sort((a, b) => {
-    
-          if
-            (sortBy   ===  "name" )
-            {
-              return a.name.localeCompare(b.name);
-    }   else   
-    if
-     (sortBy === "category")
-      
-        {
-        return a.category.localeCompare(b.category);
-    
-      }
-      return 0
-      ;
-  } 
-) 
 ;
 
     return (
@@ -74,42 +53,13 @@ const
      
      
       <ul 
-      className="flex 
+      className="flex      flex-col         gap-5">
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      flex-col         gap-5">
-      
-      
-        {thesortedItem.map(item => (
+      {sortBy ==="name" && 
+      <>
+        {items.sort((a, b) => a.name.localeCompare(b.name)).map((item,index) => (
             <Item
-               key={item.id}
+               key={index}
                   name={item.name}
                 quantity={item.quantity}
             
@@ -119,6 +69,24 @@ const
         )
       )
         }
+        </>
+      }
+            {sortBy ==="category" && 
+      <>
+        {items.sort((a, b) => a.category.localeCompare(b.category)).map((item,index) => (
+            <Item
+               key={index}
+                  name={item.name}
+                quantity={item.quantity}
+            
+                category={item.category}
+          />
+        
+        )
+      )
+        }
+        </>
+      }
           </ul>
      </div>
   
